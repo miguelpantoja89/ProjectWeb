@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+
+    	<form id="formulario" method="post" action=''>{% csrf_token %}
+    		{{formulario|crispy}}
+    		<input class="btn btn-info" type='submit' value='Realizar Busqueda'/>
+    	</form>
+	    
+	    <hr>
+
+        {% if resturantes %}
+        <p> Restaurantes encontrados :  {{ resturantes|length }}</p>
+            <div class="row">
+            {% for row in resturantes %}
+            <div class="card bg-light ml-5 mb-3 mr-3 mt-1" style="max-width: 18rem;">
+                <div class="card-header">Datos del restaurante</div>
+                <div class="card-body">
+                  <h5 class="card-title">{{row.name}}</h5>
+                  <p style="text-align:left;" class="card-text"> Tipo de comida: {{row.food}}</p>
+                  <p style="text-align:left;"> Puntuacion: {{row.points}}</p>
+                  <p style="text-align:left;">Cantidad de reviews: {{row.num_reviews}}</p>
+                  <p style="text-align:left;">Rango de precios: {{row.min_price}} € - {{row.max_price}} €</p>
+                  <p style="text-align:left;"> {{row.location}}</p>
+                 
+                </div>
+              </div>
+            {% endfor %}
+        </div>
+        
+
+			
+
+		{% endif %}
+
+{% endblock %}
