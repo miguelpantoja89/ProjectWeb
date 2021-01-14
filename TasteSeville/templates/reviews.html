@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+{% for row in reviews %}
+<div class="container-fluid bg-light ml-5 mb-2 mr-2 mt-1" >
+    <div class="card-header"><h5 class="card-title">{{row.titulo}}</h5></div>
+    <div class="card-body">
+      <p style="text-align:left;" class="card-text">{{row.body}}</p>
+      <p style="text-align:left;"> Puntuacion media: {{row.point}}</p>
+      <p style="text-align:left;"> Fecha: {{row.fecha}}</p> 
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}

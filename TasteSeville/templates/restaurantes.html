@@ -3,15 +3,17 @@
 
 <div class="row">
 {% for row in restaurantes %}
-<div class="card bg-light ml-5 mb-3 mr-3 mt-1" style="max-width: 18rem;">
-    <div class="card-header">Datos del restaurante</div>
+<div class="card bg-light ml-5 mb-4 mr-4 mt-1" style="max-width: 18rem;">
+    <div class="card-header"><a href="{% url 'show_review' pk=row.pk %}"  >Ver reviews</a></div>
     <div class="card-body">
       <h5 class="card-title">{{row.name}}</h5>
       <p style="text-align:left;" class="card-text"> Tipo de comida: {{row.food}}</p>
-      <p style="text-align:left;"> Puntuacion: {{row.points}}</p>
+      <p style="text-align:left;"> Puntuacion media: {{row.points}}</p>
       <p style="text-align:left;">Cantidad de reviews: {{row.num_reviews}}</p>
       <p style="text-align:left;">Rango de precios: {{row.min_price}} € - {{row.max_price}} €</p>
       <p style="text-align:left;"> {{row.location}}</p>
+      <img src="{{row.image}}" width="250" height="250" alt="Use internet {{row.name}}">
+      
      
     </div>
   </div>

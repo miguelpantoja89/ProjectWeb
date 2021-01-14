@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<form id="formulario" method="post" action=''>{% csrf_token %}
+    {{formulario|crispy}}
+    <input class="btn btn-info" type='submit' value='Realizar Busqueda'/>
+</form>
+{% if cargado %}
+<hr>
+<p>{{ mensaje }}</p>
+{% endif %}
+<hr>
+{% if reviews %}
+<p> Reviews encontradas :  {{ reviews|length }}</p>
+{% for row in reviews %}
+<div class="container-fluid bg-light ml-5 mb-2 mr-2 mt-1" >
+    <div class="card-header"><h5 class="card-title">{{row.titulo}}</h5></div>
+    <div class="card-body">
+      <p style="text-align:left;" class="card-text">{{row.body}}</p>
+      <p style="text-align:left;"> Fecha: {{row.fecha | date}}</p> 
+    </div>
+  </div>
+{% endfor %}
+{% endif %}
+{% endblock %}

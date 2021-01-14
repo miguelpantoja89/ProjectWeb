@@ -27,6 +27,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-info static-top">
     <div class="container">
+      <img src="https://i.ibb.co/m56wJRT/definitivo.png" alt="definitivo" height="10%" width="10%">
       <a class="navbar-brand" href="{% url 'home' %}">Taste Seville</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -48,16 +49,18 @@
             <li class="nav-item">
               <a class="nav-link" href="{% url 'logout' %}">Logout</a>
             </li>
+            
             <li class="nav-item">
               <a class="nav-link" href="{% url 'carga' %}">Carga DB</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Servicios</a>
               <div class="dropdown-menu">
-                <a class="dropdown-item" href="{% url 'restaurantes' %}">Restaurantes TripAdvisor</a>
-                <a class="dropdown-item" href="{% url 'restaurantes_nombre' %}">Buscar</a>
+                <a class="dropdown-item" href="{% url 'restaurantes' %}">Restaurantes</a>
+                <a class="dropdown-item" href="{% url 'restaurantes_nombre' %}">Buscar Restaurantes</a>
+                <a class="dropdown-item" href="{% url 'eventos' %}">Eventos</a>
                 <div role="separator" class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#three">three</a>
+                <a class="dropdown-item" href="{% url 'review_whoosh' %}">Reviews Whoosh</a>
               </div>
             </li>
             <span class="navbar-text">{{ user.username }}</span>
